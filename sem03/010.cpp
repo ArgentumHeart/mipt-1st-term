@@ -8,7 +8,9 @@ char get_a_letter();
 
 char get_a_letter() {
     char input;
-    cin >> input;
+    do {
+        cin >> input;
+    } while ( !(((input >= 'a') && (input <= 'z')) || ((input >= 'A') && (input <= 'Z'))));
     return input;
 }
 

@@ -1,20 +1,18 @@
 #include <iostream>
-#include <cmath>
 
-bool is_simple(int n) {
-    // ejudge не даёт вставить include <cmath>
-    for (int i = 2; i <= n/2; i++) {
-        if (n % i == 0) return false;
+const int MAX_N = 1000;
+
+int main() {
+    int arr[MAX_N] = {}, N;
+    double average = 0;
+    std::cin >> N;
+    for (int i = 0; i < N; i++) {
+        std::cin >> arr[i];
+        average += arr[i];
     }
-    return true;
-}
-
-int main () {
-    int n;
-    std::cin >> n;
-    for (int i = 1; i <= n; i++)
-        if ( is_simple(i) )
-            std::cout << i << ' ';
-    std::cout << std::endl;
+    average = average / N;
+    for (int i = 0; i < N; i++) {
+        if (arr[i] > average) std::cout << arr[i] << ' ';
+    }
     return 0;
 }

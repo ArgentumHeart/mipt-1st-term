@@ -58,16 +58,24 @@ bool isCloseEnough(point a) {
 
 int main () {
     int N;
+
     std::cin >> N;
     for (int i = 0; i < N; i++) {
         read_point();
     }
 
-    for (int i = 0; i < counter; i++) {
-        std::cout << arr[i].x << ' ' << arr[i].y << ' ' << arr[i].brightness << ' ' << arr[i].count << '\n';
+    // просто сортируем пузырьком
+    for (int i = 0; i < counter - 1; i++) {
+        for (int j = 0; j < counter - i - 1; j++) {
+            if (!compare(arr[j], arr[j + 1])) {
+                std::swap(arr[j], arr[j + 1]);
+            }
+        }
     }
 
-    std::cout << compare(arr[2], arr[3]);
+    for (int i = 0; i < counter; i++) {
+        std::cout << arr[i].x << ' ' << arr[i].y << ' ' << arr[i].brightness << '\n';
+    }
 
     return 0;
 }
